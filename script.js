@@ -1,9 +1,10 @@
 var field = document.getElementById("field"),
 	chat = document.getElementById("chat");
 
-var ws = new WebSocket("ws://web.mknk.tk:591/");
+var ws = new WebSocket("ws://localhost:591/");
 
-ws.onmessage + function(message) {
+ws.onmessage = function(message) {
+	console.log("NEW MESSAGE!");
 	chat.value = message.data + "\n" + chat.value;
 };
 
