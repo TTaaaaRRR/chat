@@ -1,11 +1,13 @@
 var field = document.getElementById("field"),
 	chat = document.getElementById("chat");
 
-var ws = new WebSocket("ws://localhost:591/");
+
+var name = prompt('Ваше имя', "user");
+var ws = new WebSocket("ws://80.211.135.128:591/");
 
 ws.onmessage = function(message) {
 	console.log("NEW MESSAGE!");
-	chat.value = message.data + "\n" + chat.value;
+	chat.value = name + ": " + message.data + "\n" + chat.value;
 };
 
 ws.onopen = function() {
